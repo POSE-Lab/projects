@@ -1,0 +1,310 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>COBRA - COnfidence score Based on shape Regression Analysis for method-independent quality assessment of object pose estimation from single images</title>
+
+  <script>
+    window.dataLayer = window.dataLayer || [];
+
+    function gtag() {
+      dataLayer.push(arguments);
+    }
+
+    gtag('js', new Date());
+
+    gtag('config', 'G-PYVRSFMDRL');
+  </script>
+
+  <link href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro"
+        rel="stylesheet">
+
+  <link rel="stylesheet" href="./static/css/bulma.min.css">
+  <link rel="stylesheet" href="./static/css/bulma-carousel.min.css">
+  <link rel="stylesheet" href="./static/css/bulma-slider.min.css">
+  <link rel="stylesheet" href="./static/css/fontawesome.all.min.css">
+  <link rel="stylesheet"
+        href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
+  <link rel="stylesheet" href="./static/css/index.css">
+  <link rel="icon" href="./static/images/favicon.svg">
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script defer src="./static/js/fontawesome.all.min.js"></script>
+  <script src="./static/js/bulma-carousel.min.js"></script>
+  <script src="./static/js/bulma-slider.min.js"></script>
+  <script src="./static/js/index.js"></script>
+  <script type="module" src="./static/js/app.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/three@0.151.3/build/three.min.js"></script>
+  <script src="./static/js/PLYLoader.js"></script>
+</head>
+<body>
+
+
+<section class="hero">
+  <div class="hero-body">
+    <div class="container is-max-desktop">
+      <div class="columns is-centered">
+        <div class="column has-text-centered">
+          <h1 class="title is-1 publication-title">COBRA - COnfidence score Based on shape Regression Analysis for method-independent quality assessment of object pose estimation from single images</h1>
+          <div class="is-size-5 publication-authors">
+            <span class="author-block">
+              <a href="https://scholar.google.com/citations?user=H4UjPi4AAAAJ&hl">Panagiotis Sapoutzoglou</a><sup>1,2</sup>,</span>
+            <span class="author-block">
+              <a href="https://github.com/giorgosgiapis">George Giapitzakis</a><sup>1</sup>,</span>
+            <span class="author-block">
+              <a href="https://github.com/terzakig">George Terzakis</a><sup>2</sup>,
+            </span>
+            <span class="author-block">
+              <a href="http://www.mpateraki.org/">Maria Pateraki</a><sup>1,2</sup>,
+            </span>
+          </div>
+
+          <div class="is-size-5 publication-authors">
+            <span class="author-block"><sup>1</sup>National Technical University of Athens,</span>
+            <span class="author-block"><sup>2</sup>Institute of Communication & Computer Systems</span>
+          </div>
+
+          <div class="column has-text-centered">
+            <div class="publication-links">
+              <!-- PDF Link -->
+              <span class="link-block">
+                <a href="https://arxiv.org/pdf/2404.16471"
+                   class="external-link button is-normal cyan-button">
+                  <span class="icon">
+                      <i class="fas fa-file-pdf"></i>
+                  </span>
+                  <span>Paper</span>
+                </a>
+              </span>
+              <span class="link-block">
+                <a href="https://arxiv.org/abs/2404.16471"
+                   class="external-link button is-normal cyan-button">
+                  <span class="icon">
+                      <i class="ai ai-arxiv"></i>
+                  </span>
+                  <span>arXiv</span>
+                </a>
+              </span>
+              <!-- Code Link -->
+              <span class="link-block">
+                <a href="https://github.com/pansap99/COBRAv1.2s"
+                   class="external-link button is-normal cyan-button">
+                  <span class="icon">
+                      <i class="fab fa-github"></i>
+                  </span>
+                  <span>Code</span>
+                </a>
+              </span>
+            </div>
+        </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="hero teaser">
+  <div class="container is-max-desktop">
+    <div class="hero-body">
+        <div class="image-container">
+            <img source src="./static/gifs/plane_white.gif">
+            <img source src="./static/gifs/chair_white.gif">
+            <img source src="./static/gifs/sofa_white.gif">
+            <img source src="./static/gifs/screwdriver_white.gif">
+        </div>
+    </div>
+  </div>
+</section>
+
+
+</section>
+
+<script src="https://threejs.org/build/three.js"></script>
+<script src="./static/js/app.js"></script>
+
+<section class="section">
+  <div class="container is-max-desktop">
+    <!-- Abstract. -->
+        <div class="content has-text-justified">
+          <p>
+            We present a generic algorithm for scoring pose estimation methods that rely on single image semantic analysis. 
+            The algorithm employs a lightweight putative shape representation using a combination of multiple Gaussian Processes. 
+            Each Gaussian Process (GP) yields distance normal distributions from multiple reference points in the object’s coordinate system to its surface, 
+            thus providing a geometric evaluation framework for scoring predicted poses. Our confidence measure comprises the average mixture probability of 
+            pixel back-projections onto the shape template. In the reported experiments, we compare the accuracy of our GP based representation of objects 
+            versus the actual geometric models and demonstrate the ability of our method to capture the influence of outliers as opposed to the corresponding 
+            intrinsic measures that ship with the segmentation and pose estimation methods.
+          </p>
+    </div>
+</section>
+
+
+<section class="section" id="Method">
+    <div class="container is-max-desktop content">
+        <h2 class="title">Method</h2>
+        <img src="./static/images/Method_Cobra.png" alt="Method" class="image">
+        <div class="content has-text-justified">
+        <p>
+            The core idea of our method is to use putative 3D representations of objects (“templates”)
+            that we are anticipating our classifier to detect and subsequently predict their pose. These classifiers typically
+            ship with measures of self-assessed confidence that provide
+            some indication of quality for the estimated pose. However,
+            these quality measures bear the inherent bias of the selfassessment process and can therefore be misleading for the
+            back-end application. To eliminate this bias, we resort to
+            the use of lightweight object templates to validate the geometric consistency of the estimated object pose. Put differently, we utilize the pose estimate to generate a partial 3D
+            reconstruction of the detected object and establish a confidence score by assessing the deviations of the reconstructed
+            points from the template surface
+            intrinsic measures that ship with the segmentation and pose estimation methods.
+        </p>
+        </div>
+    </div>
+</section>
+
+<section class="section" id="Qualitative Resutls"></section>
+    <div class="container is-max-desktop content">
+        <h2 class="title">Qualitative Resutls</h2>
+        <div class="content has-text-justified">
+        <p>
+            The core idea of our method is to use putative 3D representations of objects (“templates”)
+            that we are anticipating our classifier to detect and subsequently predict their pose. These classifiers typically
+            ship with measures of self-assessed confidence that provide
+            some indication of quality for the estimated pose. However,
+            these quality measures bear the inherent bias of the selfassessment process and can therefore be misleading for the
+            back-end application. To eliminate this bias, we resort to
+            the use of lightweight object templates to validate the geometric consistency of the estimated object pose. Put differently, we utilize the pose estimate to generate a partial 3D
+            reconstruction of the detected object and establish a confidence score by assessing the deviations of the reconstructed
+            points from the template surface
+            intrinsic measures that ship with the segmentation and pose estimation methods.
+        </p>
+        <table style="table-layout: fixed; width: 100%;">
+          <thead>
+            <tr>
+              <th>COBRA Template</th>
+              <th>Pose scoring</th>
+            </tr>
+        </table>
+        <div class="vis_pose-container">
+          <figure>
+            <img src="./static/gifs/d068bfa97f8407e423fc69eefd95e6d3.gif" alt="Templete 1">
+          </figure>
+          <figure>
+            <img src="./static/images/0_0.015_0.78.png" alt="Image 1">
+            <figcaption>C: 0.78, ADD: 0.015</figcaption>
+          </figure>
+          <figure>
+            <img src="./static/images/87_0.070_0.16.png" alt="Image 2">
+            <figcaption>C: 0.46, ADD: 0.06</figcaption>
+          </figure>
+          <figure>
+            <img src="./static/images/87_0.070_0.16_cr.png" alt="Image 3">
+            <figcaption>C: 0.16, ADD: 0.07</figcaption>
+          </figure>
+          <figure>
+            <img src="./static/gifs/cf24fc2d10f8da31283b00891f680579.gif" alt="Templete 2">
+          </figure>
+          <figure>
+            <img src="./static/images/16_0.0027_0.785.png" alt="Image 4">
+            <figcaption>C: 0.79, ADD: 0.003</figcaption>
+          </figure>
+          <figure>
+            <img src="./static/images/51_0.0175_0.5747.png" alt="Image 5">
+            <figcaption>C: 0.57, ADD: 0.018</figcaption>
+          </figure>
+          <figure>
+            <img src="./static/images/135_0.157_0.10.png" alt="Image 6">
+            <figcaption>C: 0.10, ADD: 0.157</figcaption>
+          </figure>
+          <figure>
+            <img src="./static/gifs/sofa_white.gif" alt="Templete 3">
+          </figure>
+          <figure>
+            <img src="./static/images/0_0.0016_0.80.png" alt="Image 7">
+            <figcaption>C: 0.80, ADD: 0.002</figcaption>
+          </figure>
+          <figure>
+            <img src="./static/images/83_0.024_0.55.png" alt="Image 8">
+            <figcaption>C: 0.55, ADD: 0.024</figcaption>
+          </figure>
+          <figure>
+            <img src="./static/images/71_0.134_0.08.png" alt="Image 9">
+            <figcaption>C: 0.08, ADD: 0.134</figcaption>
+          </figure>
+          <figure>
+            <img src="./static/gifs/screwdriver_white.gif" alt="Templete 4">
+          </figure>
+          <figure>
+            <img src="./static/images/184_0.002_0.81.png" alt="Image 10">
+            <figcaption>C: 0.81, ADD: 0.002</figcaption>
+          </figure>
+          <figure>
+            <img src="./static/images/146_0.029_0.59.png" alt="Image 11">
+            <figcaption>C: 0.59, ADD: 0.029</figcaption>
+          </figure>
+          <figure>
+            <img src="./static/images/71_0.11_0.08.png" alt="Image 12">
+            <figcaption>C: 0.08, ADD: 0.11</figcaption>
+          </figure>
+        </div>
+      </div>
+    </div>
+</section>
+
+<section class="section" id="Correlation Analysis"></section>
+    <div class="container is-max-desktop content">
+        <h2 class="title">Correlation Analysis</h2>
+        <div class="content has-text-justified">
+        <p>
+          Our confidence score does not compare against ground truth data, but it’s correlated with very
+          reliable and widely used metrics such as ADD. We calculated the proposed confidence score and the ADD for the same set of images and perfomed a correlation analysis.
+          As shown in the plot below ADD and COBRA are highly correlated. In fact, calculating the Spearman’s rank correlation coefficient we find values < -0.7 indicating a strong 
+          negative correlation. 
+        </p>
+        <div class="pose-container">
+          <img source src="./static/gifs/images.gif">
+          <img source src="./static/gifs/line_plots_final_loop.gif">
+      </div>
+        </div>
+    </div>
+</section>
+
+<section class="section" id="BibTeX">
+  <div class="container is-max-desktop content">
+    <h2 class="title">BibTeX</h2>
+    <pre><code>@misc{sapoutzoglou2024cobra,
+        title={COBRA - COnfidence score Based on shape Regression Analysis for method-independent quality assessment of object pose estimation from single images}, 
+        author={Panagiotis Sapoutzoglou and George Giapitzakis and George Terzakis and Maria Pateraki},
+        year={2024},
+        eprint={2404.16471},
+        archivePrefix={arXiv},
+        primaryClass={cs.CV},
+        url={https://arxiv.org/abs/2404.16471}}
+}</code></pre>
+  </div>
+</section>
+
+
+<footer class="footer">
+  <div class="container">
+      <div class="content has-text-centered">
+          <a class="icon-link" href="https://arxiv.org/pdf/2404.16471">
+              <i class="fas fa-file-pdf"></i>
+          </a>
+          <a class="icon-link" href="https://github.com/pansap99/COBRAv1.2s" class="external-link" disabled>
+              <i class="fab fa-github"></i>
+          </a>
+      </div>
+      <div class="columns is-centered">
+          <div class="column is-8">
+              <div class="content">
+                  <p style="text-align:center">
+                      Source code mainly borrowed from <a href="https://nerfies.github.io/">Nerfies website</a>.
+                  </p>
+              </div>
+          </div>
+      </div>
+  </div>
+</footer>
+
+</body>
+</html>
